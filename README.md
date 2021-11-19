@@ -1,4 +1,4 @@
-![Repo Size](https://img.shields.io/github/languages/code-size/CHatch2020/weekend-sql-to-do-list.svg?style=for-the-badge) ![TOP_LANGUAGE](https://img.shields.io/github/languages/top/CHatch2020/weekend-sql-to-do-list.svg?style=for-the-badge) ![FORKS](https://img.shields.io/github/forks/CHatch2020/weekend-sql-to-do-list.svg?style=for-the-badge&social) ![Stars](https://img.shields.io/github/stars/CHatch2020/weekend-sql-to-do-list.svg?style=for-the-badge)
+![Repo Size](https://img.shields.io/github/languages/code-size/CHatch2020/weekend-sql-to-do-list.svg?style=for-the-badge) ![TOP_LANGUAGE](https://img.shields.io/github/languages/top/CHatch2020/weekend-sql-to-do-list.svg?style=for-the-badge) ![FORKS](https://img.shields.io/github/forks/CHatch2020/weekend-sql-to-do-list.svg?style=for-the-badge&social)
     
 # To-Do List
 
@@ -15,7 +15,7 @@
 
 ## Description
 
-Project description goes here
+This project is called the "To-do List". The purpose of this project is to let the user digitally create a list of things they need to complete. They then will be allowed to check off what has been completed by clicking on the "Complete" button. The user also has the ability to delete tasks that are no longer needed using the "Delete" button.
 
 
 
@@ -25,12 +25,14 @@ Project description goes here
 
 ## Getting Started
 
-What do I need to do or know before attempting to use your project
+The database name needs to be : weekend-to-do-list
 
 ### Prerequisites
 
 Install node express
+
 Install node pg
+
 Link jquery
 
 ### Installation
@@ -56,7 +58,7 @@ Link jquery
 
 ## Acknowledgements
 
-Who helped you make this project a reality? Friends? Family? Contributors? Instructors?
+I want to thank Prime Digital Academy for teaching me the tools needed to complete this project and in just a short amount of time, showing that I can create a Full-Stack Website.
 
 ## Contacts
 
