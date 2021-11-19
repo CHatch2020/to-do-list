@@ -11,17 +11,20 @@
   </head>
   <body>
     <header>
-      <h1>To-Do List</h1>
-      <h3>Never Forget Again</h3>
+      <h1 class="head">To-Do List</h1>
+      <h3 class="sub">Never Forget Again</h3>
     </header>
-    <h2>Add Task</h2>
-    <section>
-      <input type="text" id="taskIn" placeholder="Write Task Here" />
-      <input type="text" id="completion" placeholder="Write Not Done" />
-      <button type="button" id="addButton">Create</button>
-    </section>
-    <h3>Your Tasks</h3>
-    <section>
+    <div class="animate">
+      <h2 class="addTask">Add Task</h2>
+      <section class="inputs">
+        <input type="text" id="taskIn" placeholder="Write The Task Here" />
+        <input type="text" id="completion" placeholder="Is The Task Done" />
+        <button type="button" id="addButton">Create</button>
+      </section>
+      <h3 class="subtitle">Your Tasks</h3>
+    </div>
+    <p class="lineBreak"></p>
+    <section id="task-table">
       <table>
         <tbody id="inputTasks"></tbody>
       </table>
