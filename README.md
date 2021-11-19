@@ -42,8 +42,9 @@ Link jquery
 5. Create GET route to return and display data to DOM
 6. Refresh DOM on button clicks
 7. Create DELETE route to delete data in DB and DOM
-8. Basic styling
-9. On completion of task, change task background and cross out Complete button
+8. Create PUT route to update completed tasks
+9. Basic styling
+10. On completion of task, change task background and cross out Complete button
 
 ## Usage
 

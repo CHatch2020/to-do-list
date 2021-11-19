@@ -7,7 +7,9 @@ function onReady() {
 
   getTask();
 
-  $("#addButton").on("click", sendTask);
+  $("#addButton").on('click', sendTask);
+  $('#inputTasks').on('click', '.update-btn', updateTasks);
+  //$('#inputTasks').on('click', 'delete-btn', deleteTasks);
 } // end onReady
 
 // ajax POST to send tasks to DB
@@ -67,5 +69,23 @@ function clearInputs(){
     $("#taskIn").val('');
     $("#completion").val('');
 }; // end clearInputs
+
+
+
+// ajax PUT to update completed tasks
+function updateTasks(){
+    console.log('in updateTasks');
+    const update = $(this).data('id');
+    $.ajax({
+        type: 'PUT',
+        url: `/tasks/${update}`
+    }).then((res) => {
+        console.log(res);
+        getTask();
+    }).catch((err) => {
+        console.log('Error in ajax PUT', err);
+    });
+}; // end updateTasks
+
 
 // ajax DELETE to delete tasks on click

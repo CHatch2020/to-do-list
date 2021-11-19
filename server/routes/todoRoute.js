@@ -46,7 +46,26 @@ taskRouter.get('/', (req, res) => {
 
 
 // PUT router
-
+taskRouter.put('/:id', (req, res) => {
+    console.log('req.params', req.params);
+    const update = req.params.id;
+    const complete = 'Done';
+    const sqlText = `
+    UPDATE "tasks"
+    SET "completion"=$1
+    WHERE "id"=$2
+    `;
+    const sqlValues = [
+        complete,
+        update
+    ];
+    pool.query(sqlText, sqlValues)
+      .then((dbRes) => {
+          res.sendStatus(201);
+      }).catch((dbErr) => {
+          res.sendStatus(500);
+      });
+}); // end PUT router
 
 
 
