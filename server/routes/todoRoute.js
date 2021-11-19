@@ -15,19 +15,33 @@ VALUES
     ($1, $2);
     `;
     const sqlValues = [
-        newTask.task,
+        newTask.task_name,
         newTask.completion
     ];
     pool.query(sqlText, sqlValues)
     .then((dbRes) => {
         console.log('insert succeded');
         res.sendStatus(201);
+    }).catch((dbErr) => {
+        res.sendStatus(500);
     });
 }); // end POST router
 
 
 // GET router
-
+taskRouter.get('/', (req, res) => {
+    console.log('GET /tasks');
+    const sqlText = `
+    SELECT * FROM "tasks";
+    `;
+    pool.query(sqlText)
+      .then((dbRes) => {
+          console.log('rows to send', dbRes.rows);
+        res.send(dbRes.rows);
+      }).catch((dbErr) => {
+          res.sendStatus(500);
+      })
+}); // end GET router
 
 
 
