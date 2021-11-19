@@ -10,3 +10,10 @@ Create TABLE "tasks" (
 		($1, $2);
 		
 	SELECT * FROM "tasks";
+
+     UPDATE "tasks"
+    SET "completion"=$1
+    WHERE "id"=$2;
+
+     DELETE FROM "tasks"
+        WHERE "id"=$1;

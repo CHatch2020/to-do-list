@@ -9,7 +9,7 @@ function onReady() {
 
   $("#addButton").on('click', sendTask);
   $('#inputTasks').on('click', '.update-btn', updateTasks);
-  //$('#inputTasks').on('click', 'delete-btn', deleteTasks);
+  $('#inputTasks').on('click', '.delete-btn', deleteTasks);
 } // end onReady
 
 // ajax POST to send tasks to DB
@@ -89,3 +89,16 @@ function updateTasks(){
 
 
 // ajax DELETE to delete tasks on click
+function deleteTasks(){
+    console.log('in deleteTasks');
+    const deleteTheTask = $(this).data('id');
+    $.ajax({
+        type: 'DELETE',
+        url: `/tasks/${deleteTheTask}`
+    }).then((res) => {
+        console.log(res);
+        getTask();
+    }).catch((err) => {
+        console.log('Error in ajax DELETE', err);
+    });
+}; // end deleteTasks
