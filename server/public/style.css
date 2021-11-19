@@ -1,0 +1,153 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-bottom: 25px;
+    background-color: #C6B79B;
+}
+
+header {
+    background-color: #2F2440;
+    color: white;
+    padding: 15px;
+    border: 2px solid #3B0918;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.head, .sub {
+    animation-name: spin;
+    animation-duration: 4s;
+    animation-fill-mode: both;
+}
+
+h1 {
+    font-size: 50px;
+}
+
+.addTask {
+    padding-left: 350px;
+    color: white;
+}
+
+.inputs {
+    text-align: center;
+}
+
+input[type=text] {
+    text-align: center;
+    border: 0;
+    box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.287);
+    border-radius: 5px;
+    padding: 6px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#addButton {
+    padding: 12px;
+    border-radius: 15px;
+}
+
+#addButton:hover {
+    color: #d1c9bb;
+    background-color: #bd2846d3;
+    border-color: #2F2440;
+}
+
+
+.subtitle {
+    text-align: center;
+    padding: 10px;
+    color: white;
+}
+
+.lineBreak {
+    border-top: 3px solid #BA0F30;
+    margin-left: 350px;
+    margin-right: 350px;
+    margin-bottom: 50px;
+}
+
+#task-table {
+    text-align: center;
+    animation-name: rightToLeft;
+    animation-duration: 3.5s;
+    animation-fill-mode: both;
+}
+
+table {
+    display: inline-block;
+    box-shadow: 0 0 15px 15px rgba(255, 255, 255, 0.308);
+    border-radius: 5px;
+    border: 2px solid #ba0f319f;
+}
+
+td {
+    padding: 5px;
+}
+
+.update-btn {
+    border-radius: 15px;
+}
+.update-btn:hover {
+    color: white;
+    background-color: #5a3f83;
+    border-color: white;
+}
+
+
+.delete-btn {
+    border-radius: 15px;
+}
+
+.delete-btn:hover {
+    color: white;
+    background-color: #611229;
+    border-color: gainsboro;
+}
+
+.animate {
+    animation-name: fadeInLeft;
+    animation-duration: 5s;
+    animation-fill-mode: both;
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-80px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes rightToLeft {
+    0% {
+        left: 0;
+        opacity: 1;
+        transform: translateX(-20px);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        right: 100%;
+        opacity: 1;
+        transform: translateX(0);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform-origin: right bottom;
+        transform: rotate(-90deg);
+        opacity: 0;
+    }
+    100% {
+        transform-origin: right bottom;
+        transform: rotate(0);
+        opacity: 1;
+    }
+}
