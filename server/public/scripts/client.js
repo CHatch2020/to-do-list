@@ -27,6 +27,7 @@ function sendTask() {
     .then((res) => {
       console.log("POST /task succeeded");
       getTask();
+      clearInputs()
     })
     .catch((err) => {
       console.log("Error in ajax POST", err);
@@ -62,5 +63,9 @@ function getTask() {
 } // end getTask
 
 // clear inputs function
+function clearInputs(){
+    $("#taskIn").val('');
+    $("#completion").val('');
+}; // end clearInputs
 
 // ajax DELETE to delete tasks on click
