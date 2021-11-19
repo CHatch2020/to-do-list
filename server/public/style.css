@@ -113,6 +113,10 @@ td {
     animation-delay: 2s;
 }
 
+.whiteText {
+    color: white;
+}
+
 @keyframes fadeInLeft {
     0% {
         opacity: 0;

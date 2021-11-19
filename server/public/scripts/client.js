@@ -6,10 +6,9 @@ function onReady() {
   console.log("Hello!");
 
   getTask();
-
-  $("#addButton").on('click', sendTask);
-  $('#inputTasks').on('click', '.update-btn', updateTasks);
-  $('#inputTasks').on('click', '.delete-btn', deleteTasks);
+  $("#addButton").on("click", sendTask);
+  $("#inputTasks").on("click", ".update-btn", updateTasks);
+  $("#inputTasks").on("click", ".delete-btn", deleteTasks);
 } // end onReady
 
 // ajax POST to send tasks to DB
@@ -29,7 +28,7 @@ function sendTask() {
     .then((res) => {
       console.log("POST /task succeeded");
       getTask();
-      clearInputs()
+      clearInputs();
     })
     .catch((err) => {
       console.log("Error in ajax POST", err);
@@ -52,7 +51,7 @@ function getTask() {
         $("#inputTasks").append(`
             <tr>
                 <td>${task.task_name}</td>
-                <td>${task.completion}</td>
+                <td class="changeColor">${task.completion}</td>
                 <td><button class="update-btn" data-id="${task.id}">Complete</button></td>
                 <td><button class="delete-btn" data-id="${task.id}">Delete</button></td>
             </tr>
@@ -65,40 +64,54 @@ function getTask() {
 } // end getTask
 
 // clear inputs function
-function clearInputs(){
-    $("#taskIn").val('');
-    $("#completion").val('');
-}; // end clearInputs
-
-
+function clearInputs() {
+  $("#taskIn").val("");
+  $("#completion").val("");
+} // end clearInputs
 
 // ajax PUT to update completed tasks
-function updateTasks(){
-    console.log('in updateTasks');
-    const update = $(this).data('id');
-    $.ajax({
-        type: 'PUT',
-        url: `/tasks/${update}`
-    }).then((res) => {
-        console.log(res);
-        getTask();
-    }).catch((err) => {
-        console.log('Error in ajax PUT', err);
+function updateTasks() {
+  console.log("in updateTasks");
+  const update = $(this).data("id");
+  $.ajax({
+    type: "PUT",
+    url: `/tasks/${update}`,
+  })
+    .then((res) => {
+      console.log(res);
+      getTask();
+      changeColor();
+    })
+    .catch((err) => {
+      console.log("Error in ajax PUT", err);
     });
-}; // end updateTasks
-
+} // end updateTasks
 
 // ajax DELETE to delete tasks on click
-function deleteTasks(){
-    console.log('in deleteTasks');
-    const deleteTheTask = $(this).data('id');
-    $.ajax({
-        type: 'DELETE',
-        url: `/tasks/${deleteTheTask}`
-    }).then((res) => {
-        console.log(res);
-        getTask();
-    }).catch((err) => {
-        console.log('Error in ajax DELETE', err);
+function deleteTasks() {
+  console.log("in deleteTasks");
+  const deleteTheTask = $(this).data("id");
+  $.ajax({
+    type: "DELETE",
+    url: `/tasks/${deleteTheTask}`,
+  })
+    .then((res) => {
+      console.log(res);
+      getTask();
+    })
+    .catch((err) => {
+      console.log("Error in ajax DELETE", err);
     });
-}; // end deleteTasks
+} // end deleteTasks
+
+function changeColor() {
+  if ($(this).data("id")) {
+    $(".changeColor").css("color:", "white");
+    return true;
+  }
+
+  // if ($('.update-btn').on('click')) {
+  //     $('.changeColor').addClass('whiteText');
+  //     return true;
+  // }
+} // end changeColor
