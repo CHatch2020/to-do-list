@@ -1,10 +1,10 @@
 $(document).ready(onReady);
 
+
 // create basic onReady function to hold click handlers
 // and renderers
 function onReady() {
   console.log("Hello!");
-
   getTask();
   $("#addButton").on("click", sendTask);
   $("#inputTasks").on("click", ".update-btn", updateTasks);
@@ -73,6 +73,7 @@ function clearInputs() {
 function updateTasks() {
   console.log("in updateTasks");
   const update = $(this).data("id");
+  const color = $(this).data("id");
   $.ajax({
     type: "PUT",
     url: `/tasks/${update}`,
@@ -80,7 +81,7 @@ function updateTasks() {
     .then((res) => {
       console.log(res);
       getTask();
-      changeColor();
+      changeColor(color);
     })
     .catch((err) => {
       console.log("Error in ajax PUT", err);
@@ -104,14 +105,10 @@ function deleteTasks() {
     });
 } // end deleteTasks
 
-function changeColor() {
-  if ($(this).data("id")) {
-    $(".changeColor").css("color:", "white");
+function changeColor(theColor) {
+  console.log(theColor);
+  if ($('.update-btn').on('click')) {
+    $(".changeColor").css("color", "white");
     return true;
   }
-
-  // if ($('.update-btn').on('click')) {
-  //     $('.changeColor').addClass('whiteText');
-  //     return true;
-  // }
 } // end changeColor
